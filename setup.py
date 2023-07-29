@@ -9,7 +9,7 @@ from distutils.errors import DistutilsOptionError
 from setuptools import setup, Extension
 from Cython.Build import cythonize
 
-define_macros = [('CYTHON_USE_PYLONG_INTERNALS', '1')]
+define_macros = [('CYTHON_USE_PYLONG_INTERNALS', '0')]
 
 class build_ext(_build_ext):
     user_options = _build_ext.user_options + [
