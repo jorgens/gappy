@@ -9,6 +9,7 @@ from distutils.errors import DistutilsOptionError
 from setuptools import setup, Extension
 from Cython.Build import cythonize
 
+define_macros = [('CYTHON_LIMITED_API', '1')]
 
 class build_ext(_build_ext):
     user_options = _build_ext.user_options + [
@@ -115,6 +116,6 @@ class build_ext(_build_ext):
 
 setup(
     cmdclass={'build_ext': build_ext},
-    ext_modules=[Extension('*', ['gappy/*.pyx'])],
-    use_scm_version={'write_to': 'gappy/_version.py'}
+    ext_modules=[Extension('*', ['gappy/*.pyx'],define_macros=define_macros)],
+    use_scm_version={'write_to': 'gappy/_version.py'},
 )
